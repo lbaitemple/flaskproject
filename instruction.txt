@@ -1,0 +1,35 @@
+http://blog.rtwilson.com/how-to-fix-flask-wsgi-webapp-hanging-when-importing-a-module-such-as-numpy-or-matplotlib/
+https://zkf85.github.io/2018/12/03/flask-uwsgi-nginx-deploy
+https://www.pyimagesearch.com/2018/02/05/deep-learning-production-keras-redis-flask-apache/
+https://vishnut.me/blog/ec2-flask-apache-setup.html
+curl -u mike:test -F "picture=@pic2.jpg"   -F "format=json"  -F "model=@keras_model.h5" -F "class=@labels.txt"  http://templebits.duckdns.org/classfy
+curl -u mike:test -F "user=pspniyjc"   -F "passwd=sBm4EpaDgRe5" -F "host=m16.cloudmqtt.com" -F "port=12247" -F "topic=topic_mqtt" -F "value=test_value"  http://templebits.duckdns.org/webhook
+curl -u root:test -F "action=[add|delete|changpwd]"   -F "user=chris" -F "passwd=test"   http://templebits.duckdns.org/createuser
+    1  sudo apt update && sudo apt-get upgrade -y
+    2  sudo apt-get install python3-pip -y
+    3  pip3 install virtualenv
+    4  mkdir flaskproject && cd flaskproject/
+    6  sudo apt install virtualenv
+    7  virtualenv --python=python3 venv
+    8  . venv/bin/activate
+    9  sudo apt-get install apache2 libapache2-mod-wsgi-py3 -y
+   12  pip install Flask
+   13  pip install  Flask-HTTPAuth==4.1.0
+   15  pip install tensorflow==2.2.0
+   16  pip install numpy==1.16
+   18  pip install pillow
+   19  sudo chgrp www-data ~/flaskproject/
+   sudo chgrp www-data ~/flaskproject/passwd.txt
+   20  sudo cp 000-default.conf /etc/apache2/sites-enabled/000-default.conf
+   21  sudo cp wsgi.conf /etc/apache2/mods-enabled/
+   22  sudo ln -sT ~/flaskproject /var/www/html/flaskproject
+   23  sudo apachectl restart
+   24  python
+   25  ls
+   26  tail /var/log/apache2/error.log
+   27  ls
+   28  nano instruction.txt 
+   29  cd ..
+   30  ls -l
+   31  cd -
+   32  history >> instruction.txt 
