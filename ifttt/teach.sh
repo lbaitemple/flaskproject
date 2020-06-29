@@ -4,6 +4,7 @@ label="/home/ftp/storage/model/labels.txt"
 camerafolder="/home/ftp/sdcard/Camera1/"
 ifttt_link="https://maker.ifttt.com/trigger/MotionCam/with/key/ddMmb_mQAvNb2lKKf0tHz8IC1s4NE_8LWTJe5iIf6h-"
 value2="test"
+
 #get the latest image [DO NOT CHANGE ANYTHING BEBLOW
 directory=`ls -Rtrl $camerafolder | grep ":$" | tail -1 | sed 's/://g'`
 imgfile=`ls -Rtrl $camerafolder | tail -1 | cut -c 58-`
