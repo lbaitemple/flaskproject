@@ -3,7 +3,7 @@ https://zkf85.github.io/2018/12/03/flask-uwsgi-nginx-deploy
 https://www.pyimagesearch.com/2018/02/05/deep-learning-production-keras-redis-flask-apache/
 https://vishnut.me/blog/ec2-flask-apache-setup.html
 curl -u mike:test -F "picture=@pic2.jpg"   -F "format=json"  -F "model=@keras_model.h5" -F "class=@labels.txt"  http://templebits.duckdns.org/classfy
-curl -u mike:test -F "user=pspniyjc"   -F "passwd=sBm4EpaDgRe5" -F "host=m16.cloudmqtt.com" -F "port=12247" -F "topic=topic_mqtt" -F "value=test_value"  http://templebits.duckdns.org/webhook
+curl -u mike:test -F "user=mqtt_user"   -F "passwd=mqtt_passwd" -F "host=m16.cloudmqtt.com" -F "port=12247" -F "topic=topic_mqtt" -F "value=test_value"  http://templebits.duckdns.org/webhook
 curl -u root:test -F "action=[add|delete|changpwd]"   -F "user=chris" -F "passwd=test"   http://templebits.duckdns.org/createuser
     1  sudo apt update && sudo apt-get upgrade -y
     2  sudo apt-get install python3-pip -y
