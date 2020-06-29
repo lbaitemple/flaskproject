@@ -3,7 +3,7 @@ model="/home/ftp/storage/model/keras_model.h5"
 label="/home/ftp/storage/model/labels.txt"
 camerafolder="/home/ftp/sdcard/Camera1/"
 ifttt_link="https://maker.ifttt.com/trigger/MotionCam/with/key/ddMmb_mQAvNb2lKKf0tHz8IC1s4NE_8LWTJe5iIf6h-"
-webcamurl=http://192.168.86.22:8081 
+webcamurl="http://192.168.86.22:8081" 
 youtubekey=""
 value2="test"
 
