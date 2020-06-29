@@ -24,4 +24,4 @@ curl -s -X POST -H "Content-Type: application/json" -d "$sendcmd" $ifttt_link
  curl https://raw.githubusercontent.com/lbaitemple/motioneye2youtube/master/livestream.sh --output livestream.sh
 
 curl https://raw.githubusercontent.com/lbaitemple/motioneye2youtube/master/livestream.sh --output livestream.sh
-bash /home/ftp/storage/livestream.sh $webcamurl $youtubekey
+bash /home/ftp/storage/livestream.sh $webcamurl $youtubekey &
