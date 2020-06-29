@@ -2,8 +2,9 @@
 model="/home/ftp/storage/model/keras_model.h5"
 label="/home/ftp/storage/model/labels.txt"
 camerafolder="/home/ftp/sdcard/Camera1/"
-
-#get the latest image
+ifttt_link="https://maker.ifttt.com/trigger/MotionCam/with/key/ddMmb_mQAvNb2lKKf0tHz8IC1s4NE_8LWTJe5iIf6h-"
+value2="test"
+#get the latest image [DO NOT CHANGE ANYTHING BEBLOW
 directory=`ls -Rtrl $camerafolder | grep ":$" | tail -1 | sed 's/://g'`
 imgfile=`ls -Rtrl $camerafolder | tail -1 | cut -c 58-`
 ifile="${directory}/${imgfile}"
@@ -14,6 +15,6 @@ pred=`curl -s -u lbai:test -F "picture=@$ifile" -F "model=@$model"  -F "class=@$
 
 #echo $pred
 # send the result to IFTTT
-sendcmd='{"value1": "'$pred'", "value2" : "link"}'
-curl -s -X POST -H "Content-Type: application/json" -d "$sendcmd" https://maker.ifttt.com/trigger/MotionCam/with/key/ddMmb_mQAvNb2lKKf0tHz8IC1s4NE_8LWTJe5iIf6h-
+sendcmd='{"value1": "'$pred'", "value2" : "'$value2'"}'
+curl -s -X POST -H "Content-Type: application/json" -d "$sendcmd" $ifttt_link
  
