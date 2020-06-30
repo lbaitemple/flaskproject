@@ -3,9 +3,9 @@ model="/home/ftp/storage/model/keras_model.h5"
 label="/home/ftp/storage/model/labels.txt"
 camerafolder="/home/ftp/sdcard/Camera1/"
 ifttt_link="https://maker.ifttt.com/trigger/MotionCam/with/key/ddMmb_mQAvNb2lKKf0tHz8IC1s4NE_8LWTJe5iIf6h-"
-webcamurl="http://192.168.86.22:8081" 
-youtubekey=""
-value2="test"
+#webcamurl="http://192.168.86.22:8081" 
+#youtubekey=""
+#value2="test"
 
 #get the latest image [DO NOT CHANGE ANYTHING BEBLOW
 directory=`ls -Rtrl $camerafolder | grep ":$" | tail -1 | sed 's/://g'`
@@ -18,10 +18,8 @@ pred=`curl -s -u lbai:test -F "picture=@$ifile" -F "model=@$model"  -F "class=@$
 
 #echo $pred
 # send the result to IFTTT
-sendcmd='{"value1": "'$pred'", "value2" : "'$value2'"}'
+#sendcmd='{"value1": "'$pred'", "value2" : "'$value2'"}'
+sendcmd='{"value1": "'$pred'"}'
 curl -s -X POST -H "Content-Type: application/json" -d "$sendcmd" $ifttt_link
  
- curl https://raw.githubusercontent.com/lbaitemple/motioneye2youtube/master/livestream.sh --output livestream.sh
-
-curl https://raw.githubusercontent.com/lbaitemple/motioneye2youtube/master/livestream.sh --output livestream.sh
-bash /home/ftp/storage/livestream.sh $webcamurl $youtubekey &
+#bash /home/ftp/storage/livestream.sh $webcamurl $youtubekey &
