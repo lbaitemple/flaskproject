@@ -25,5 +25,5 @@ sudo cp ./conf/wsgi.conf /etc/apache2/mods-enabled/
 sudo ln -sT ~/flaskproject /var/www/html/flaskproject
 sudo apachectl restart
 echo "Done!"
-echo "To activate your virtual environment, use command 'source env/bin/activate'."
+echo "To activate your virtual environment, use command 'source venv/bin/activate'."
 echo "To exit your virtual enviroment, use command 'deactivate'."
