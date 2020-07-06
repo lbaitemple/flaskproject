@@ -5,22 +5,16 @@ curl -u lbai:test -F "picture=@pic2.jpg"   -F "format=text"  -F "model=@keras_mo
 
 # load into aws 
 ```
+cd ~
 git clone https://github.com/lbaitemple/flaskproject
-sudo apt update && sudo apt-get upgrade -y
-sudo apt-get install python3-pip virtualenv -y
-sudo apt-get install apache2 libapache2-mod-wsgi-py3 -y
-pip3 install virtualenv
-cd flaskproject/
-virtualenv --python=python3 venv
-. venv/bin/activate
-pip install -r requirement.txt
-sudo chgrp www-data ~/flaskproject/
-sudo cp conf/000-default.conf /etc/apache2/sites-enabled/000-default.conf
-sudo cp conf/wsgi.conf /etc/apache2/mods-enabled/
+cd ~/flaskproject
+chmod +x ./linux_install.sh 
+./linux_install.sh 
 ```
 
 # create a new root user and restart the server
 ```
+soource venc
 python createroot.py -p yourpasswd
 sudo chgrp www-data ~/flaskproject/passwd.txt
 sudo ln -sT ~/flaskproject /var/www/html/flaskproject
