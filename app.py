@@ -118,15 +118,16 @@ def user():
     data = request.form.to_dict(flat=True)
     if (auth.current_user()=='root'):
         if (data['action']=='add'):
-            return addnewuser(passfile, data['user'], data['passwd'])
+            ret=addnewuser(passfile, data['user'], data['passwd'])
         elif (data['action']=='delete'):
-            return deluser(passfile, data['user'])
+            ret = deluser(passfile, data['user'])
         elif (data['action']=='changpwd'):
-            return  changepw(passfile, data['user'], data['passwd'])
+            ret = changepw(passfile, data['user'], data['passwd'])
         else:
-            return "action {" + data['action'] + "} not implemented\n", 300
+            ret = "action {" + data['action'] + "} not implemented\n", 300
         with open(passfile) as json_file:
             users = json.load(json_file)
+        return ret
     else:
         return "Cannot  grant access\n", 401
 
