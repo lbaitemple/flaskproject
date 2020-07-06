@@ -1,3 +1,4 @@
+https://www.bogotobogo.com/VideoStreaming/ffmpeg_http_live_streaming_hls.php
 http://blog.rtwilson.com/how-to-fix-flask-wsgi-webapp-hanging-when-importing-a-module-such-as-numpy-or-matplotlib/
 https://zkf85.github.io/2018/12/03/flask-uwsgi-nginx-deploy
 https://www.pyimagesearch.com/2018/02/05/deep-learning-production-keras-redis-flask-apache/
@@ -33,3 +34,8 @@ curl -u root:test -F "action=[add|delete|changpwd]"   -F "user=chris" -F "passwd
    30  ls -l
    31  cd -
    32  history >> instruction.txt 
+ffmpeg -re -i http://192.168.86.22:8081 -f lavfi -i anullsrc -c:v libx264 -g 60 -c:a aac -ar 44100 -ac 2 -f flv  rtmp://templebits.duckdns.org:1935/live/abc
+ffmpeg -i http://192.168.22.86:8081 -f image2 -updatefirst 1 img.jpg
+ffmpeg -re -i http://192.168.86.22:8081 -c:v libx264 -preset fast -c:a libfdk_aac -ab 128k -ar 44100 -f rtsp rtsp://templebits.duckdns.org:80/live/STREAM_NAME
+ffmpeg -re -i http://192.168.86.22:8081 -c:v libx264 -preset fast -c:a libfdk_aac -ab 128k -ar 44100 -f rtsp rtsp://templebits.duckdns.org:80/live/rpi
+ffmpeg -i http://192.168.22.86:8081 pipe:1 | curl -X POST --data-binary @- http://templebits.duckdns.org/fdfe
