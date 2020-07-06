@@ -126,8 +126,6 @@ def user():
     else:
         return "Cannot  grant access\n", 401
 
-@app.route( "/video", methods=["POST"])
-def video():
 
 if __name__ == "__main__":
     os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'

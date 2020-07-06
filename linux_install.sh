@@ -16,6 +16,7 @@ pip install  Flask-HTTPAuth==4.1.0
 pip install tensorflow==2.2.0
 pip install numpy==1.16
 pip install pillow
+pip install paho-mqtt
 mkdir -p ~/flaskproject/upload
 sudo chgrp -R www-data ~/flaskproject/
 sudo chgrp www-data ~/flaskproject/passwd.txt
