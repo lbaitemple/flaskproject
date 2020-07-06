@@ -8,8 +8,13 @@ curl -u lbai:test -F "picture=@pic2.jpg"   -F "format=text"  -F "model=@keras_mo
 cd ~
 git clone https://github.com/lbaitemple/flaskproject
 cd ~/flaskproject
+sudo /bin/dd if=/dev/zero of=/var/swap.1 bs=1M count=1024
+sudo /sbin/mkswap /var/swap.1
+sudo /sbin/swapon /var/swap.1
 chmod +x ./linux_install.sh 
 ./linux_install.sh 
+sudo swapoff /var/swap.1
+sudo rm /var/swap.1
 ```
 
 # create a new root user and restart the server
