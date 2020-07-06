@@ -15,7 +15,7 @@ chmod +x ./linux_install.sh
 # create a new root user and restart the server
 ```
 cd ~/flaskproject
-source env/bin/activate
+source venv/bin/activate
 python createroot.py -p yourpasswd
 sudo apachectl restart
 ```
