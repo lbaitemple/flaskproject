@@ -12,7 +12,16 @@ sudo /bin/dd if=/dev/zero of=/var/swap.1 bs=1M count=1024
 sudo /sbin/mkswap /var/swap.1
 sudo /sbin/swapon /var/swap.1
 chmod +x ./linux_install.sh 
-./linux_install.sh 
+./linux_install.sh
+```
+### To enable swap memory
+```
+sudo echo "/swap1 swap swap" >> /etc/fstab
+```
+
+### To remove the swap memory
+
+```
 sudo swapoff /var/swap.1
 sudo rm /var/swap.1
 ```
