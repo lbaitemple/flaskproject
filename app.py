@@ -17,6 +17,7 @@ with open(passfile) as json_file:
 
 @auth.verify_password
 def verify_password(username, password):
+    global users
     if username in users and \
             check_password_hash(users.get(username), password):
         return username
@@ -112,6 +113,7 @@ def webhook():
 @app.route( "/user", methods=["POST"])
 @auth.login_required
 def user():
+    global users
     # data format
     data = request.form.to_dict(flat=True)
     if (auth.current_user()=='root'):
@@ -123,6 +125,8 @@ def user():
             return  changepw(passfile, data['user'], data['passwd'])
         else:
             return "action {" + data['action'] + "} not implemented\n", 300
+        with open(passfile) as json_file:
+            users = json.load(json_file)
     else:
         return "Cannot  grant access\n", 401
 
