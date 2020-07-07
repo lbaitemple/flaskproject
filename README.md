@@ -16,7 +16,7 @@ chmod +x ./linux_install.sh
 ```
 ### To enable swap memory
 ```
-sudo echo "/swap1 swap swap" >> /etc/fstab
+echo "/swap1 swap swap" | sudo tee -a  /etc/fstab
 ```
 
 ### To remove the swap memory
