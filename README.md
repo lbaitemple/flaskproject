@@ -52,6 +52,11 @@ model and label files are options if they are loaded into the instance in a prev
 curl -u newuser:newpasswd -F "picture=@other.jpg"   -F "format=[json|text]"  http://aws-instance_address/classfy
 ```
 
+### use webpa mode
+```
+curl -u newuser:newpasswd -F "csv=@peer.csv"  http://aws-instance_address/webpa
+```
+
 ### use the server webhook as MQTT proxies [cloud mqtt, etc]
 ```
 curl -u newuser:newpasswd -F "user=mqtt_user"   -F "passwd=mqtt_passwd" -F "host=m16.cloudmqtt.com" -F "port=12247" -F "topic=topic_mqtt" -F "value=test_value"  http://aws-instance_address/webhook
