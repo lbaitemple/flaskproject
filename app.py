@@ -53,16 +53,16 @@ def webpa():
         except:
             # if no option is given, set  the file name as None
             aiclass[fi] = None
-    pred=classify(dirc, aiclass)
+    pred=calcsvscore(dirc, aiclass)
 
     if pred == None:
         if (data.get('format')=='json'):
-            return jsonify({'status': 'failed', 'reason': 'need picture file'}), 300
+            return jsonify({'status': 'failed', 'reason': 'need csv file'}), 300
         else:
-            return 'need picture file', 300
+            return 'need csv file', 300
     else:
         if (data.get('format')=='json'):
-            return jsonify({'status': 'success', 'pred': pred}), 200
+            return jsonify({'status': 'success', 'webpascore': pred}), 200
         else:
             return pred+'\n', 200
     return ""
