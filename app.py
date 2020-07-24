@@ -6,6 +6,7 @@ from werkzeug.security import  check_password_hash
 import logging, os, json, glob
 from pred import classify, removefiles
 from user import addnewuser, deluser, changepw
+from webpacsv import calcsvscore
 
 app = Flask(__name__)
 auth = HTTPBasicAuth()
@@ -24,6 +25,47 @@ def verify_password(username, password):
 
 
  
+@app.route( "/webpa", methods=["POST"])
+@auth.login_required
+def webpa():
+    # data format
+    data = request.form.to_dict(flat=True)
+    folder="webpa/" + auth.current_user()
+    dirc=os.path.join(os.path.dirname(__file__), folder)
+    if not os.path.exists(dirc):
+        os.makedirs(dirc)
+    content = ['csv']
+    aiclass={}
+
+    for fi in content:
+        try:
+            # upload file into user's folder and set the name in dict aiclass
+            file = request.files[fi]
+            aiclass[fi]=file.filename
+            if fi=='csv':
+                fileformat = os.path.splitext(aiclass[fi])
+                if (fileformat[1].lower() != '.csv'):
+                     return 'need csv label file , but'+ fileformat[1] + ' is given\n', 300
+                else:
+                    list_of_files = glob.glob(os.path.join(dirc, "*.csv"))
+                    removefiles(list_of_files)
+            file.save(os.path.join(dirc, file.filename))
+        except:
+            # if no option is given, set  the file name as None
+            aiclass[fi] = None
+    pred=classify(dirc, aiclass)
+
+    if pred == None:
+        if (data.get('format')=='json'):
+            return jsonify({'status': 'failed', 'reason': 'need picture file'}), 300
+        else:
+            return 'need picture file', 300
+    else:
+        if (data.get('format')=='json'):
+            return jsonify({'status': 'success', 'pred': pred}), 200
+        else:
+            return pred+'\n', 200
+    return ""
 
 
 @app.route( "/classfy", methods=["POST"])

@@ -15,9 +15,10 @@ pip install Flask
 pip install  Flask-HTTPAuth==4.1.0
 pip install tensorflow==2.2.0
 pip install numpy==1.16
-pip install pillow
+pip install pillow pandas
 pip install paho-mqtt
 mkdir -p ~/flaskproject/upload
+mkdir -p ~/flaskproject/webpa
 sudo chgrp -R www-data ~/flaskproject/
 sudo chgrp www-data ~/flaskproject/passwd.txt
 sudo cp ./conf/000-default.conf /etc/apache2/sites-enabled/000-default.conf
